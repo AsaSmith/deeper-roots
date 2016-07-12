@@ -1,0 +1,27 @@
+doctype html
+html
+
+  head
+    meta(charset='utf8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge, chrome=1')
+    meta(name='description', content='description of your site')
+    meta(name='author', content= "author of the site")
+    //- uncomment if your site is responsive!
+    //- meta(name="viewport" content="width=device-width, initial-scale=1")
+    title #{entry.title} | Deeper Roots 
+    != css('/')
+
+  body(id= helpers.getPageName(_path))
+  
+    block content
+
+    h1 This is the #{helpers.getPageName(_path)} page.
+  
+    p The above does not return a page name because #[code typeof(_path)] is #[code #{typeof(_path)}] &#128533;
+  
+    p: a(href='/') back home
+  
+    - console.log(_path)
+    
+    h2= entry.title
+    != marked(entry.body)

@@ -1,0 +1,13 @@
+extends layout
+
+block content
+
+  h1 This is the #{helpers.getPageName(_path)} page.
+  
+  p This is the #[code _path] returned by roots: #[code #{_path}].
+
+  h2 Here are a few blog posts:
+  ul
+    - for post in contentful.posts
+      li
+        h4: a(href= post._url.replace(/.html$/,""))= post.title
